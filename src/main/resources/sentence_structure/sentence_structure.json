@@ -1,15 +1,15 @@
 {
   "decl": {
-    "noun_and_verb_clause": {
-      "weight": 1.0,
-      "sentences": [
-        "/noun一边/vrbt/noun，一边/vrbi", "/noun一边/vrbt/noun，一边/thnk：”~ques“"
-      ]
-    },
     "noun_and_verb": {
       "weight": 8.0,
       "sentences": [
         "/noun在/vrbi", "/noun/vrbt了/noun", "/noun/bfvb/vrbi", "/noun/advb地/vrbi", "/noun/advb地/vrbt/noun", "/noun/advb地把/noun/vrbt成/noun"
+      ]
+    },
+    "metaphor": {
+      "weight": 6.0,
+      "sentences": [
+        "/noun/mtph/noun一样/degr/adjt", "/noun/mtph/noun一样/adjt", "/noun/mtph/noun一样地/bfvb/vrbi", "/noun/mtph/noun一样地/vrbt/noun", "/noun/mtph一个/noun"
       ]
     },
     "noun_and_adj": {
@@ -21,7 +21,7 @@
     "quote": {
       "weight": 1.0,
       "sentences": [
-        "/name/said：“~decl”", "/noun/said：“~decl”", "/noun/said：“~ques”"
+        "/name/said：“~decl”", "/noun/said：“~decl”", "/noun/said：“~ques”", "/noun/said：“你搁这/vrbi呢”", "/noun/said：“你搁这/vrbt/noun呢”"
       ]
     },
     "think": {
@@ -36,6 +36,13 @@
       "weight": 5.0,
       "sentences": [
         "为什么~decl？"
+      ]
+    },
+    "question2": {
+      "locked": true,
+      "weight": 3.0,
+      "sentences": [
+        "/noun会/vrbi？"
       ]
     }
   },
@@ -61,10 +68,34 @@
         "如果~decl，/noun就会/vrbi", "如果~decl，/noun就会/vrbt/noun"
       ]
     },
+    "event": {
+      "weight": 7.0,
+      "sentences":  [
+        "~decl的同时，~decl", "~decl之后，/noun/vrbi了", "~decl之后，/noun/adjt得/vrbi"
+      ]
+    },
     "chain": {
-      "weight": 4.0,
+      "weight": 2.0,
       "sentences":  [
         "~defn，~defn，~defn，/crea~decl", "~defn，~defn，~defn，这就是/noun/vrbi的理由？", "~nisv，~nisv，~nisv，/crea~decl"
+      ]
+    },
+    "noun_and_verb_clause": {
+      "weight": 6.0,
+      "sentences": [
+        "/noun一边/vrbt/noun，一边/vrbi", "/noun一边/vrbt/noun，一边/thnk：”~ques“。"
+      ]
+    },
+    "though": {
+      "weight": 6.0,
+      "sentences": [
+        "/ctho~decl，/noun也不会/vrbt/noun", "/ctho~decl，/noun也不会/vrbi", "/ctho~decl，/noun也不会相信/noun的鬼话"
+      ]
+    },
+    "dialogue": {
+      "weight": 2.0,
+      "sentences": [
+        "/noun问：“~ques”，/noun回答：“~decl”。", "/noun问：“~ques”，/noun回答：“~decl”，但/noun说：“搓啦，~decl”"
       ]
     }
   },
@@ -92,7 +123,7 @@
     "我跟你说": {
       "weight": 1.0,
       "sentences": [
-        "我跟你说，这是/adjt的，而且没有一点/adjt", "我跟你说，这是错的"
+        "我跟你说，这是/adjt的，而且没有一点/adjt", "~ques我跟你说，这是错的，", "我跟你说，~decl，不要相信/noun的鬼话。"
       ]
     }
   }

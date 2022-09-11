@@ -23,12 +23,12 @@
 以下是该 json 文件的结构：
 ```json
 {
-  "exmp": { //父句子种类，必须为四个字符
-    "example": { //子句子种类，任意长度。父种类内可以包含多个子种类
-      "locked": false, //是否不能被随机抽取，不添加默认为 false（布尔值）
-      "weight": 1.0, //权重（双精度浮点型）
+  "exmp": {
+    "example": {
+      "locked": false,
+      "weight": 1.0,
       "sentences": [
-        "句子模板1", "句子模板2", "句子模板n……" //任意个句子模板
+        "句子模板1", "句子模板2", "句子模板n……"
       ]
     }
   }
@@ -49,11 +49,9 @@
 在句子模板中加入 ~ + 父种类代号 可以嵌套该父种类内随机另一个句子模板，**无视子种类是否被锁定**。  
 例子：
 ```json
-//sentence_structure.json内
 {
   "tsta": {
     "test_sub": {
-      //不加 "locked" ，默认为false。 
       "weight": 1.0,
       "sentences": [
         "/noun是/adjt的"

@@ -32,7 +32,6 @@ public class ResourceReader {
 
     public static String getRandomSentence(String type) throws IOException {
         JSONObject obj = (JSONObject) getJsonObj(SENTENCE_LOC).get(type);
-        System.out.println(obj);
         List<String> list = calcWeight(obj, false);
         if(list == null)return getRandomSentence(type);
         return (String) getRandomElement(list);
@@ -46,8 +45,10 @@ public class ResourceReader {
         double weight = weightSum * new Random().nextDouble();
         double temp = 0;
         for(Object innerObj : obj.values()){
-            if(ignoreLocked && ((JSONObject) innerObj).containsKey("locked") && (boolean)((JSONObject) innerObj).get("locked")){
-                continue;
+            if(ignoreLocked){
+                if(((JSONObject) innerObj).containsKey("locked") && (boolean)((JSONObject) innerObj).get("locked")){
+                    continue;
+                }
             }
             double objWeight = (double)((JSONObject) innerObj).get("weight");
             if(weight >= temp && weight < temp + objWeight){

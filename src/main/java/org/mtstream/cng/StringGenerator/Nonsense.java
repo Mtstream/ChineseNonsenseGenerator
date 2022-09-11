@@ -11,11 +11,19 @@ public class Nonsense {
         StringBuilder builder = new StringBuilder("");
         for(int j = 0 ; j < i ; j++){
             builder.append(SentenceGenerator.fillSentence(ResourceReader.getRandomSentence()));
-            if(needPunc(builder.toString().charAt(builder.length()-1))) builder.append(new Random().nextBoolean()?"，":"。");
+            if(needPunc(builder.toString().charAt(builder.length()-1))) builder.append(genPunc());
         }
         return builder.toString();
     }
     public static boolean needPunc(char c){
         return c > 0x4E00 && c < 0x9FBF || c == '“' || c == '”';
+    }
+    public static char genPunc(){
+        return switch (new Random().nextInt(3)) {
+            case 0 -> '，';
+            case 1 -> '。';
+            case 2 -> '！';
+            default -> '。';
+        };
     }
 }

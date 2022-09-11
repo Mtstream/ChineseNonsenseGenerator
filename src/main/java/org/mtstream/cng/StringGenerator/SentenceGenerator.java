@@ -1,7 +1,5 @@
 package org.mtstream.cng.StringGenerator;
 
-
-import org.json.simple.parser.ParseException;
 import org.mtstream.cng.resourcesInteractor.ResourceReader;
 
 import java.io.IOException;
@@ -9,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SentenceGenerator {
-    public static String fillSentence(String structure) throws IOException, ParseException {
+    public static String fillSentence(String structure) throws IOException {
         String wordregx = "/.{4}";
         String sentregx = "~.{4}";
 
