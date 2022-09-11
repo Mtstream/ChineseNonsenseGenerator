@@ -9,13 +9,13 @@
     "noun_and_verb": {
       "weight": 8.0,
       "sentences": [
-        "/noun在/vrbi", "/noun/vrbt了/noun", "/noun/bfvb/vrbi"
+        "/noun在/vrbi", "/noun/vrbt了/noun", "/noun/bfvb/vrbi", "/noun/advb地/vrbi", "/noun/advb地/vrbt/noun", "/noun/advb地把/noun/vrbt成/noun"
       ]
     },
     "noun_and_adj": {
       "weight": 8.0,
       "sentences": [
-        "/noun/degr/adjd", "/noun变得/adjt"
+        "/noun/degr/adjt", "/noun是/adjt的"
       ]
     },
     "quote": {
@@ -27,7 +27,7 @@
     "think": {
       "weight": 0.2,
       "sentences": [
-        "/name/thnk：“~ques”", "/noun/thnk：“~ques”"
+        "/name/thnk：“~ques”", "/noun/thnk：“~ques”", "/noun/thnk：“~decl”"
       ]
     }
   },
@@ -40,11 +40,11 @@
     }
   },
   "defn": {
-    "def1": {
+    "defnoun": {
       "locked": true,
       "weight": 1.0,
       "sentences": [
-        "/adjt的/noun"
+        "/adjt的/noun", "/vrbi的/noun", "正在被/vrbt的/noun"
       ]
     }
   },
@@ -55,7 +55,12 @@
         "/crea~decl，~decl", "~decl，/cres~decl"
       ]
     },
-
+    "conditional": {
+      "weight": 7.0,
+      "sentences":  [
+        "如果~decl，/noun就会/vrbi", "如果~decl，/noun就会/vrbt/noun"
+      ]
+    },
     "chain": {
       "weight": 4.0,
       "sentences":  [
@@ -68,6 +73,26 @@
       "weight": 1.0,
       "sentences": [
         "/noun在/vrbi"
+      ]
+    }
+  },
+  "misc": {
+    "我跟你说个典故": {
+      "weight": 1.0,
+      "sentences": [
+        "我跟你说个典故，~decl，然后~decl，最后~clse。", "我跟你说个典故，~decl，~clse。"
+      ]
+    },
+    "有人说": {
+      "weight": 1.0,
+      "sentences": [
+        "有人说：“~decl”，但这明显错得像~defn。", "/noun说：“~decl”，但这明显错得像~defn，事实上~decl", "/name说：“~decl”，但这明显错得像~defn，其实~decl"
+      ]
+    },
+    "我跟你说": {
+      "weight": 1.0,
+      "sentences": [
+        "我跟你说，这是/adjt的，而且没有一点/adjt", "我跟你说，这是错的"
       ]
     }
   }

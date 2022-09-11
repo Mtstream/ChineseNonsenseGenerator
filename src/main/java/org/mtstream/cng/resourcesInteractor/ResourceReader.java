@@ -3,9 +3,6 @@ package org.mtstream.cng.resourcesInteractor;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import org.json.simple.parser.ContainerFactory;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +12,8 @@ import java.util.*;
 @SuppressWarnings({"unchecked","rawtypes"})
 public class ResourceReader {
 
+    public static final String SENTENCE_LOC = "sentence_structure/sentence_structure.json";
+    public static final String WORD_LOC = "word/word.json";
 
     public static JSONObject getJsonObj(String loc) throws IOException {
         InputStream is = ClassLoader.getSystemResourceAsStream(loc);
@@ -25,14 +24,14 @@ public class ResourceReader {
     }
 
     public static String getRandomSentence() throws IOException {
-        JSONObject obj = (JSONObject) getRandomElement(getJsonObj("sentenceStructure/sentence_structure.json").values().stream().toList());
+        JSONObject obj = (JSONObject) getRandomElement(getJsonObj(SENTENCE_LOC).values().stream().toList());
         List<String> list = calcWeight(obj, true);
         if(list == null)return getRandomSentence();
         return (String) getRandomElement(list);
     }
 
     public static String getRandomSentence(String type) throws IOException {
-        JSONObject obj = (JSONObject) getJsonObj("sentenceStructure/sentence_structure.json").get(type);
+        JSONObject obj = (JSONObject) getJsonObj(SENTENCE_LOC).get(type);
         System.out.println(obj);
         List<String> list = calcWeight(obj, false);
         if(list == null)return getRandomSentence(type);
@@ -60,55 +59,16 @@ public class ResourceReader {
     }
 
     public static String getRandomWord(String type) throws IOException {
-        JSONArray arr = (JSONArray) getJsonObj("word/word.json").get(type);
+        JSONArray arr = (JSONArray) getJsonObj(WORD_LOC).get(type);
         if(arr == null)return "*Not Found*";
         List<String> list = arr.stream().toList();
         return (String) getRandomElement(list);
     }
 
-    public static List<String> getAllWordType() throws IOException, ParseException {
-        List<Map.Entry> outerList = getJSONList(getJsonObj("word/word.json"));
-        List<String> list = new ArrayList<>();
-        for(Map.Entry entry : outerList){
-            list.add((String) entry.getKey());
-        }
-        return list;
-    }
 
-    public static Object getRandomElement(List<? extends Object> coll){
+    public static Object getRandomElement(List<?> coll){
         Random r = new Random();
         return coll.get(r.nextInt(coll.size()));
     }
 
-    public static Object getRandomValue(List<Map.Entry> coll) throws ParseException {
-        Random r = new Random();
-        return coll.get(r.nextInt(coll.size())).getValue();
-    }
-
-    public static Object getRandomKey(List<Map.Entry> coll) throws ParseException {
-        Random r = new Random();
-        return coll.get(r.nextInt(coll.size())).getKey();
-    }
-
-    public static List getJSONList(String loc) throws IOException, ParseException {
-        return getJSONList(getJsonObj(loc));
-    }
-    public static List getJSONList(JSONObject obj) throws IOException, ParseException {
-        ContainerFactory factory = new ContainerFactory() {
-            @Override
-            public Map createObjectContainer() {
-                return new LinkedHashMap();
-            }
-
-            @Override
-            public List creatArrayContainer() {
-                return new LinkedList();
-            }
-        };
-        JSONParser parser = new JSONParser();
-        String str = obj.toJSONString();
-        Map JSONMap = (Map)parser.parse(str, factory);
-
-        return (List<Map.Entry>) JSONMap.entrySet().stream().toList();
-    }
 }
