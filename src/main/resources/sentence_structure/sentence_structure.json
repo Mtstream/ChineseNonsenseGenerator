@@ -3,7 +3,7 @@
     "noun_and_verb": {
       "weight": 8.0,
       "sentences": [
-        "/noun在/vrbi", "/noun/vrbt了/noun", "/noun/bfvb/vrbi", "/noun/advb地/vrbi", "/noun/advb地/vrbt/noun", "/noun/advb地把/noun/vrbt成/noun"
+        "/dcrn在/vrbi", "/dcrn/vrbt了/noun", "/noun/bfvb/vrbi", "/noun/advb地/vrbi", "/noun/advb地/vrbt/noun", "/noun/advb地把/noun/vrbt成/noun"
       ]
     },
     "metaphor": {
@@ -15,13 +15,13 @@
     "noun_and_adj": {
       "weight": 8.0,
       "sentences": [
-        "/noun/degr/adjt", "/noun是/adjt的"
+        "/dcrn/degr/adjt", "/noun是/adjt的"
       ]
     },
     "quote": {
       "weight": 1.0,
       "sentences": [
-        "/name/said：“~decl”", "/noun/said：“~decl”", "/noun/said：“~ques”", "/noun/said：“你搁这/vrbi呢”", "/noun/said：“你搁这/vrbt/noun呢”"
+        "/name/said：“~decl”", "/dcrn/said：“~decl”", "/dcrn/said：“~ques”", "/dcrn/said：“你搁这/vrbi呢”", "/dcrn/said：“你搁这/vrbt/noun呢”"
       ]
     },
     "think": {
@@ -83,7 +83,7 @@
     "noun_and_verb_clause": {
       "weight": 6.0,
       "sentences": [
-        "/noun一边/vrbt/noun，一边/vrbi", "/noun一边/vrbt/noun，一边/thnk：”~ques“。"
+        "/dcrn一边/vrbt/noun，一边/vrbi", "/dcrn一边/vrbt/noun，一边/thnk：”~ques“。"
       ]
     },
     "though": {
@@ -103,7 +103,7 @@
     "noun_is_verb": {
       "weight": 1.0,
       "sentences": [
-        "/noun在/vrbi"
+        "/dcrn在/vrbi"
       ]
     }
   },

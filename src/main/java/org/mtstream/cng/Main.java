@@ -24,25 +24,31 @@ public class Main{
     public static class GeneratorGUI extends JFrame implements MouseListener{
 
         GeneratorGUI() {
+            setTitle("废话生成器");
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.getContentPane().setBackground(new Color(40, 40, 40));
-            setSize(360,650);
+            setSize(420,500);
+            //文本
+            JLabel label0 = new JLabel("大约长度");
+            label0.setBounds(20, 20, 60, 20);
+            label0.setForeground(Color.lightGray);
+            add(label0);
             //输入框
             JTextField field = new JTextField();
-            field.setBounds(20,20,300,20);
+            field.setBounds(80,20,300,20);
             add(field);
             //按钮
             JButton button = new JButton("生成");
             button.setSize(100, 50);
             button.setPreferredSize(new Dimension(100,50));
             button.setBackground(new Color(84, 135, 211));
-            button.setBounds(20, 60, 300, 20);
+            button.setBounds(20, 60, 360, 20);
             add(button);
             //文本
-            JLabel label = new JLabel("");
-            label.setForeground(Color.lightGray);
-            add(label);
-
+            JLabel label1 = new JLabel("");
+            label1.setForeground(Color.lightGray);
+            label1.setLocation(20, 100);
+            add(label1);
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -50,14 +56,14 @@ public class Main{
                         String nonsense = Nonsense.create(Integer.parseInt(field.getText()));
                         Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
                         c.setContents(new StringSelection(nonsense), null);
-                        label.setText("<html>"+nonsense+"<html>");
+                        label1.setText("<html>"+nonsense+"<html>");
+                        label1.setBounds(20, 100, 300, 600);
                     } catch (IOException | ParseException ex) {
                         throw new RuntimeException(ex);
                     }
                 }
             });
             add(new JLabel("大约字数："), BorderLayout.AFTER_LAST_LINE);
-
 
             setVisible(true);
         }

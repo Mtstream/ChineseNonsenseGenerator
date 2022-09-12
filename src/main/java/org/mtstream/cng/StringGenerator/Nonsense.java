@@ -13,6 +13,7 @@ public class Nonsense {
             builder.append(SentenceGenerator.fillSentence(ResourceReader.getRandomSentence()));
             if(needPunc(builder.toString().charAt(builder.length()-1))) builder.append(genPunc());
         }
+
         return builder.toString();
     }
     public static boolean needPunc(char c){
