@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: org.mtstream.cng.Main
+Class-Path: junit-4.10.jar json-simple-1.1.1.jar hamcrest-core-1.1.jar
+

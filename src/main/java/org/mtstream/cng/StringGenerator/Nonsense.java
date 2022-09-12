@@ -9,7 +9,7 @@ import java.util.Random;
 public class Nonsense {
     public static String create(int i) throws IOException, ParseException {
         StringBuilder builder = new StringBuilder("");
-        for(int j = 0 ; j < i ; j++){
+        while (builder.length() < i){
             builder.append(SentenceGenerator.fillSentence(ResourceReader.getRandomSentence()));
             if(needPunc(builder.toString().charAt(builder.length()-1))) builder.append(genPunc());
         }
