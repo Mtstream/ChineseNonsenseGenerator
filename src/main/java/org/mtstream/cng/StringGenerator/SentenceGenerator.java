@@ -3,6 +3,7 @@ package org.mtstream.cng.StringGenerator;
 import org.mtstream.cng.resourcesInteractor.ResourceReader;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +19,7 @@ public class SentenceGenerator {
         Matcher sentmatcher = sentpattern.matcher(structure);
 
         String origin = structure;
+        origin = random(origin);
         while (wordmatcher.find()){
             origin = origin.replaceFirst(wordmatcher.group(), ResourceReader.getRandomWord(wordmatcher.group().replaceFirst("/", "")));
         }
@@ -29,5 +31,19 @@ public class SentenceGenerator {
         }else {
             return origin;
         }
+    }
+
+    public static String random(String structure){
+        Pattern ranpattern = Pattern.compile("<.+>");
+        Matcher matcher = ranpattern.matcher(structure);
+        String origin = structure;
+        while (matcher.find()){
+            String str = matcher.group();
+            String[] items = str.replaceAll("[<>]", "").split(", *");
+            Random ran = new Random();
+            String replacement = items[ran.nextInt(items.length)];
+            origin = origin.replaceFirst(str, replacement);
+        }
+        return origin;
     }
 }

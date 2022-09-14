@@ -45,22 +45,19 @@ public class Main{
             button.setBounds(20, 60, 360, 20);
             add(button);
             //文本
-            JLabel label1 = new JLabel("");
+            JLabel label1 = new JLabel("w");
+            label1.setBounds(20, 100, 60, 20);
             label1.setForeground(Color.lightGray);
-            label1.setLocation(20, 100);
             add(label1);
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    try {
-                        String nonsense = Nonsense.create(Integer.parseInt(field.getText()));
-                        Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
-                        c.setContents(new StringSelection(nonsense), null);
-                        label1.setText("<html>"+nonsense+"<html>");
-                        label1.setBounds(20, 100, 300, 600);
-                    } catch (IOException | ParseException ex) {
-                        throw new RuntimeException(ex);
-                    }
+            button.addActionListener(e -> {
+                try {
+                    String nonsense = Nonsense.create(Integer.parseInt(field.getText()));
+                    Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    c.setContents(new StringSelection(nonsense), null);
+                    label1.setText("<html>"+nonsense+"<html>");
+                    label1.setBounds(20, 100, 60, 20);
+                } catch (IOException | ParseException ex) {
+                    throw new RuntimeException(ex);
                 }
             });
             add(new JLabel("大约字数："), BorderLayout.AFTER_LAST_LINE);

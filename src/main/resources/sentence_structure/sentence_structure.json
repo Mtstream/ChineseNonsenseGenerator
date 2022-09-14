@@ -77,13 +77,13 @@
     "chain": {
       "weight": 2.0,
       "sentences":  [
-        "~defn，~defn，~defn，/crea~decl", "~defn，~defn，~defn，这就是/noun/vrbi的理由？", "~nisv，~nisv，~nisv，/crea~decl"
+        "<~defn,~nisv>，<~defn,~nisv>，<~defn,~nisv>，/crea~decl", "~defn，~defn，~defn，这就是/noun/vrbi的理由？"
       ]
     },
     "noun_and_verb_clause": {
       "weight": 6.0,
       "sentences": [
-        "/dcrn一边/vrbt/noun，一边/vrbi", "/dcrn一边/vrbt/noun，一边/thnk：”~ques“。"
+        "/dcrn一边/vrbt/noun，一边/vrbi", "/dcrn一边/vrbt/noun，一边/thnk：“~ques”"
       ]
     },
     "though": {
@@ -111,19 +111,19 @@
     "我跟你说个典故": {
       "weight": 1.0,
       "sentences": [
-        "我跟你说个典故，~decl，然后~decl，最后~clse。", "我跟你说个典故，~decl，~clse。"
+        "我跟你说个<故事,典故,事情>，~decl，然后~decl，最后~clse。", "我跟你说个<故事,典故,事情>，~decl，~clse。"
       ]
     },
     "有人说": {
       "weight": 1.0,
       "sentences": [
-        "有人说：“~decl”，但这明显错得像~defn。", "/noun说：“~decl”，但这明显错得像~defn，事实上~decl", "/name说：“~decl”，但这明显错得像~defn，其实~decl"
+        "</noun,/name,有人>说：“~decl”，但这明显错得像~defn。", "</noun,/name,有人>说：“~decl”，但这明显错得像~defn，<其实,事实上>~decl。"
       ]
     },
     "我跟你说": {
       "weight": 1.0,
       "sentences": [
-        "我跟你说，这是/adjt的，而且没有一点/adjt", "~ques我跟你说，这是错的，", "我跟你说，~decl，不要相信/noun的鬼话。"
+        "我跟你说，这是/adjt的，而且没有一点/adjt", "~ques我跟你说，这是错的，", "我跟你说，<其实,事实上>~decl，不要相信/noun的鬼话。"
       ]
     }
   }
