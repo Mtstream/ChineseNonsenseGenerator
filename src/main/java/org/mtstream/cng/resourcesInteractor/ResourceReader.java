@@ -7,6 +7,7 @@ import org.json.simple.JSONValue;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @SuppressWarnings({"unchecked","rawtypes"})
@@ -18,7 +19,7 @@ public class ResourceReader {
     public static JSONObject getJsonObj(String loc) throws IOException {
         InputStream is = ClassLoader.getSystemResourceAsStream(loc);
         assert is != null;
-        JSONObject obj = (JSONObject) JSONValue.parse(new InputStreamReader(is));
+        JSONObject obj = (JSONObject) JSONValue.parse(new InputStreamReader(is, StandardCharsets.UTF_8));
         is.close();
         return obj;
     }
@@ -54,6 +55,7 @@ public class ResourceReader {
             if(weight >= temp && weight < temp + objWeight){
                 return ((JSONArray)((JSONObject) innerObj).get("sentences")).stream().toList();
             }
+
             temp += objWeight;
         }
         return null;

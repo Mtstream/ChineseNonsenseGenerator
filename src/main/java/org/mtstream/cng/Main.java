@@ -27,7 +27,7 @@ public class Main{
             setTitle("废话生成器");
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.getContentPane().setBackground(new Color(40, 40, 40));
-            setSize(420,500);
+            setSize(420,550);
             //文本
             JLabel label0 = new JLabel("大约长度");
             label0.setBounds(20, 20, 60, 20);
@@ -38,29 +38,36 @@ public class Main{
             field.setBounds(80,20,300,20);
             add(field);
             //按钮
-            JButton button = new JButton("生成");
-            button.setSize(100, 50);
-            button.setPreferredSize(new Dimension(100,50));
-            button.setBackground(new Color(84, 135, 211));
-            button.setBounds(20, 60, 360, 20);
-            add(button);
+            JButton button0 = new JButton("生成");
+            button0.setSize(100, 50);
+            button0.setPreferredSize(new Dimension(100,50));
+            button0.setBackground(new Color(84, 135, 211));
+            button0.setBounds(20, 60, 360, 20);
+            add(button0);
+            //按钮
+            JButton button1 = new JButton("复制到剪贴板");
+            button1.setPreferredSize(new Dimension(100,50));
+            button1.setBackground(new Color(84, 135, 211));
+            button1.setBounds(20, 470, 360, 20);
+            add(button1);
             //文本
-            JLabel label1 = new JLabel("w");
+            JLabel label1 = new JLabel("");
             label1.setBounds(20, 100, 60, 20);
             label1.setForeground(Color.lightGray);
             add(label1);
-            button.addActionListener(e -> {
+            button0.addActionListener(e -> {
                 try {
                     String nonsense = Nonsense.create(Integer.parseInt(field.getText()));
-                    Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
-                    c.setContents(new StringSelection(nonsense), null);
                     label1.setText("<html>"+nonsense+"<html>");
                     label1.setBounds(20, 100, 60, 20);
                 } catch (IOException | ParseException ex) {
                     throw new RuntimeException(ex);
                 }
             });
-            add(new JLabel("大约字数："), BorderLayout.AFTER_LAST_LINE);
+            button1.addActionListener(e -> {
+                Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
+                c.setContents(new StringSelection(label1.getText().replaceAll("<html>", "")), null);
+            });
 
             setVisible(true);
         }

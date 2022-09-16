@@ -1,7 +1,8 @@
 plugins {
     id 'java'
 }
-
+apply plugin:'java'
+apply plugin:'application'
 group 'org.example'
 version '1.0-SNAPSHOT'
 
@@ -14,9 +15,22 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
     implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-
+    // https://mvnrepository.com/artifact/com.github.houbb/opencc4j
+    implementation group: 'com.github.houbb', name: 'opencc4j', version: '1.7.2'
 }
-
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+jar{
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    archiveFileName = 'nonsense-generator-' + version + '.jar'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes 'Main-Class': 'org.mtstream.cng.Main'
+    }
+}
 test {
     useJUnitPlatform()
 }
