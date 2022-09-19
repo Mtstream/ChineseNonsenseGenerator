@@ -6,7 +6,7 @@ import org.mtstream.cng.resourcesInteractor.ResourceReader;
 import java.io.IOException;
 import java.util.Random;
 
-public class NonsenseBuilder {
+public class Nonsense {
     public static String create(int i) throws IOException, ParseException {
         StringBuilder builder = new StringBuilder();
         while (builder.length() < i){
