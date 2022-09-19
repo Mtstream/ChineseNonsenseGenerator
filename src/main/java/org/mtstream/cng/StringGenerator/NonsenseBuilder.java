@@ -6,11 +6,11 @@ import org.mtstream.cng.resourcesInteractor.ResourceReader;
 import java.io.IOException;
 import java.util.Random;
 
-public class Nonsense {
+public class NonsenseBuilder {
     public static String create(int i) throws IOException, ParseException {
         StringBuilder builder = new StringBuilder();
         while (builder.length() < i){
-            builder.append(SentenceGenerator.fillSentence(ResourceReader.getRandomSentence()));
+            builder.append(SentenceFactory.fillSentence(ResourceReader.getRandomSentence()));
             if(needPunc(builder.toString().charAt(builder.length()-1))) builder.append(genPunc());
         }
         if(builder.charAt(builder.length()-1) == '，'){

@@ -7,7 +7,8 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SentenceGenerator {
+public class SentenceFactory {
+
     public static String fillSentence(String structure) throws IOException {
         String wordregx = "/.{4}";
         String sentregx = "~.{4}";
@@ -19,10 +20,13 @@ public class SentenceGenerator {
         Matcher sentmatcher = sentpattern.matcher(structure);
 
         String origin = structure;
-        origin = random(origin);
+        //装填随机抽取格式
+        origin = randomSelect(origin);
+        //装填词语
         while (wordmatcher.find()){
             origin = origin.replaceFirst(wordmatcher.group(), ResourceReader.getRandomWord(wordmatcher.group().replaceFirst("/", "")));
         }
+        //装填句子模板
         while (sentmatcher.find()){
             origin = origin.replaceFirst(sentmatcher.group(), fillSentence(ResourceReader.getRandomSentence(sentmatcher.group().replaceFirst("~", ""))));
         }
@@ -33,7 +37,7 @@ public class SentenceGenerator {
         }
     }
 
-    public static String random(String structure){
+    public static String randomSelect(String structure){
         Pattern ranpattern = Pattern.compile("<.+>");
         Matcher matcher = ranpattern.matcher(structure);
         String origin = structure;

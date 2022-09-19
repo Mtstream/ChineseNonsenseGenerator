@@ -3,7 +3,8 @@
     "noun_and_verb": {
       "weight": 8.0,
       "sentences": [
-        "/dcrn在/vrbi", "/dcrn/vrbt了/noun", "/noun/bfvb/vrbi", "/noun/advb地/vrbi", "/noun/advb地/vrbt/noun", "/noun/advb地把/noun/vrbt成/noun"
+        "/dcrn在/vrbi", "/dcrn/vrbt了/noun", "/dcrn/bfvb/vrbi", "/dcrn/advb地/vrbi", "/dcrn/advb地/vrbt/noun", "/dcrn/advb地把/noun/vrbt成/noun",
+        "/dcrn称<自己,/noun>为“/noun”", "/dcrn<将,把>/noun放入/noun/prep", "/noun/bfvb向/noun/vrbt", "/dcrn把/noun/vrbt到/noun/prep", "/dcrn得到了/drcn", ""
       ]
     },
     "metaphor": {
@@ -59,7 +60,13 @@
     "causally": {
       "weight": 7.0,
       "sentences":  [
-        "/crea~decl，~decl", "~decl，/cres~decl"
+        "/crea~decl，~decl", "~decl，/cres~decl", "~decl，/dcrn因此变得/adjt"
+      ]
+    },
+    "turn": {
+      "weight": 7.0,
+      "sentences": [
+        "~decl，但是~decl", "~decl，但是/dcrn<无法,不能>/vrbi"
       ]
     },
     "conditional": {
@@ -71,7 +78,8 @@
     "event": {
       "weight": 7.0,
       "sentences":  [
-        "~decl的同时，~decl", "~decl之后，/noun/vrbi了", "~decl之后，/noun/adjt得/vrbi"
+        "~decl的同时，~decl", "~decl之后，/noun/vrbi了", "~decl之后，/noun/adjt得/vrbi", "自从~decl，/noun逐渐变得/adjt，并开始用</noun,/dcrn>/vrbt/noun",
+        "~decl，对此我想说：“<~decl,~clse>。”", "~decl，/dcrn对此感到</none,/degr>/emot"
       ]
     },
     "chain": {
@@ -95,7 +103,7 @@
     "dialogue": {
       "weight": 2.0,
       "sentences": [
-        "/noun问：“~ques”，/noun回答：“~decl”。", "/noun问：“~ques”，/noun回答：“~decl”，但/noun说：“搓啦，~decl”"
+        "/noun问：“~ques”，/noun回答：“~decl”。", "/noun问：“~ques”，/noun回答：“~decl”，但/noun说：“<错了,这是错误的,搓啦>，~decl”"
       ]
     }
   },
