@@ -5,6 +5,8 @@ import org.mtstream.cng.resourcesInteractor.ResourceReader;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Nonsense {
     public static String create(int i) throws IOException, ParseException {
@@ -19,7 +21,9 @@ public class Nonsense {
         return builder.toString();
     }
     public static boolean needPunc(char c){
-        return c > 0x4E00 && c < 0x9FBF || c == '“' || c == '”';
+        Pattern canCanNeed = Pattern.compile("[\u4e00-\u9fa5“”]");
+        Matcher matcher = canCanNeed.matcher(Character.toString(c));
+        return matcher.matches();
     }
     public static char genPunc(){
         return switch (new Random().nextInt(3)) {

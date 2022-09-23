@@ -13,6 +13,7 @@ import java.util.*;
 @SuppressWarnings({"unchecked","rawtypes"})
 public class ResourceReader {
 
+    public static final String NOT_FOUND = "*NotFound";
     public static final String SENTENCE_LOC = "sentence_structure/sentence_structure.json";
     public static final String WORD_LOC = "word/word.json";
 
@@ -63,7 +64,7 @@ public class ResourceReader {
 
     public static String getRandomWord(String type) throws IOException {
         JSONArray arr = (JSONArray) getJsonObj(WORD_LOC).get(type);
-        if(arr == null)return "*Not Found*";
+        if(arr == null)return NOT_FOUND;
         List<String> list = arr.stream().toList();
         return (String) getRandomElement(list);
     }

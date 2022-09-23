@@ -3,8 +3,19 @@
     "noun_and_verb": {
       "weight": 8.0,
       "sentences": [
-        "/dcrn在/vrbi", "/dcrn/vrbt了/noun", "/dcrn/bfvb/vrbi", "/dcrn/advb地/vrbi", "/dcrn/advb地/vrbt/noun", "/dcrn/advb地把/noun/vrbt成/noun",
-        "/dcrn称<自己,/noun>为“/noun”", "/dcrn<将,把>/noun放入/noun/prep", "/noun/bfvb向/noun/vrbt", "/dcrn把/noun/vrbt到/noun/prep", "/dcrn得到了/drcn", ""
+        "/dcrn在/vrbi", "/dcrn在/advb地/vrbi", "/dcrn/vrbt了/noun", "/dcrn/bfvb/vrbi", "/dcrn/advb地/vrbi", "/dcrn/advb地/vrbt/noun", "/dcrn/advb地把/noun/vrbt成/noun",
+        "/dcrn称<自己,/noun,/none>为“/noun”", "/dcrn<将,把>/noun放<进,入>/noun/prep", "/noun/bfvb向/noun/vrbt", "/dcrn把/noun/vrbt到/noun/prep", "/dcrn得到了/dcrn",
+        "/dcrn用/noun<将,把>/dcrn/vrbt了", "/noun与<去世,逝去>的/noun/vrbi", "/dcrn在/noun/prep</vrbi,/vrbt/noun>", "/dcrn在</vrbi,/vrbt/noun>时/vrbt了/noun",
+        "</noun,我><操控,命令,要求>/dcrn</vrbi,/vrbt/noun>", "<所有,/none></noun,人>从/dcrn/prep<爬,滚,走,跑>出来", "/noun的<周围,附近><钻出来,出现,冒出>了<许多,很多>/dcrn",
+        "/dcrn从/noun/prep<钻出,冒出>来", "/dcrn/advb地vrbt了/dcrn", "有很多/dcrn从/noun里掉出来", "/noun/advb地发现了/dcrn", "/noun发现了在/noun里的/noun", "/dcrn卡在了/noun里",
+        "/noun每天/vrbi@RandomInt=10<次,遍>#", "/dcrn被/noun改装成/noun", "/dcrn朝着/noun开始/vrbi", "/dcrn/prep到处都是/dcrn", "/dcrn上覆盖着/dcrn", "/dcrn把/noun/vrbt得到处都是",
+        "/noun期待着/noun的/vrbi", "/dcrn被固定在/noun/prep"
+      ]
+    },
+    "define": {
+      "weight": 8.0,
+      "sentences": [
+        "/noun是/adjt的", "</noun,这,那>是<真,假>的", "只有/noun是/adjt的", "/dcrn/degr/adjt", "/noun是/adjt的"
       ]
     },
     "metaphor": {
@@ -13,30 +24,43 @@
         "/noun/mtph/noun一样/degr/adjt", "/noun/mtph/noun一样/adjt", "/noun/mtph/noun一样地/bfvb/vrbi", "/noun/mtph/noun一样地/vrbt/noun", "/noun/mtph一个/noun"
       ]
     },
-    "noun_and_adj": {
-      "weight": 8.0,
-      "sentences": [
-        "/dcrn/degr/adjt", "/noun是/adjt的"
-      ]
-    },
     "quote": {
       "weight": 1.0,
       "sentences": [
-        "/name/said：“~decl”", "/dcrn/said：“~decl”", "/dcrn/said：“~ques”", "/dcrn/said：“你搁这/vrbi呢”", "/dcrn/said：“你搁这/vrbt/noun呢”"
+        "/noun/said：“~decl。”", "/dcrn/said：“~decl。”", "/dcrn/said：“~ques”", "/dcrn/said：“你搁这/vrbi呢@EndPunc#”", "/dcrn/said：“你搁这/vrbt/noun呢@EndPunc#”"
+      , "/dcrn问：“/excl，~ques”"
       ]
     },
     "think": {
       "weight": 0.2,
       "sentences": [
-        "/name/thnk：“~ques”", "/noun/thnk：“~ques”", "/noun/thnk：“~decl”"
+        "/noun/thnk：“~ques”", "/noun/thnk：“~ques”", "/noun/thnk：“~decl。”"
       ]
     }
   },
   "ques": {
-    "question1": {
+    "why": {
       "weight": 5.0,
       "sentences": [
-        "为什么~decl？"
+        "为什么~decl？", "为什么/noun在</noun/prep,这里>？", "为什么这里有/dcrn？"
+      ]
+    },
+    "who": {
+      "weight": 5.0,
+      "sentences": [
+        "<你,我,/noun>是谁？", "那个/dcrn是谁？"
+      ]
+    },
+    "where": {
+      "weight": 5.0,
+      "sentences": [
+        "<你,我,/noun>在哪？", "这里是哪里？", "/noun去了哪里？"
+      ]
+    },
+    "what": {
+      "weight": 5.0,
+      "sentences": [
+        "<你,我,/noun>在干什么？", "什么是/noun？", "你在/vrbt什么？"
       ]
     },
     "question2": {
@@ -79,19 +103,15 @@
       "weight": 7.0,
       "sentences":  [
         "~decl的同时，~decl", "~decl之后，/noun/vrbi了", "~decl之后，/noun/adjt得/vrbi", "自从~decl，/noun逐渐变得/adjt，并开始用</noun,/dcrn>/vrbt/noun",
-        "~decl，对此我想说：“<~decl,~clse>。”", "~decl，/dcrn对此感到</none,/degr>/emot"
+        "~decl之后，/noun/vrbi了","/dcrn/advb地vrbt了/dcrn，并把它放到/noun/prep",
+        "~decl，对此我想说：“<~decl,~clse>。”", "~decl，/dcrn对此感到</none,/degr>/emot", "~decl，这<给/dcrn,/none>带来了新的/noun", "@RandomInt=50#年后，/dcrn/vrbi了",
+        "/dcrn一边/vrbt/noun，一边/vrbi", "/dcrn一边/vrbt/noun，一边/thnk：“~ques”", "/dcrn<在/vrbt,/vrbt了>/noun，并开始/vrbi"
       ]
     },
     "chain": {
       "weight": 2.0,
       "sentences":  [
         "<~defn,~nisv>，<~defn,~nisv>，<~defn,~nisv>，/crea~decl", "~defn，~defn，~defn，这就是/noun/vrbi的理由？"
-      ]
-    },
-    "noun_and_verb_clause": {
-      "weight": 6.0,
-      "sentences": [
-        "/dcrn一边/vrbt/noun，一边/vrbi", "/dcrn一边/vrbt/noun，一边/thnk：“~ques”"
       ]
     },
     "though": {
@@ -117,21 +137,33 @@
   },
   "misc": {
     "我跟你说个典故": {
-      "weight": 1.0,
+      "weight": 7.0,
       "sentences": [
         "我跟你说个<故事,典故,事情>，~decl，然后~decl，最后~clse。", "我跟你说个<故事,典故,事情>，~decl，~clse。"
       ]
     },
     "有人说": {
-      "weight": 1.0,
+      "weight": 5.0,
       "sentences": [
-        "</noun,/name,有人>说：“~decl”，但这明显错得像~defn。", "</noun,/name,有人>说：“~decl”，但这明显错得像~defn，<其实,事实上>~decl。"
+        "</noun,有人>说：“~decl”，但这明显错得像~defn。", "</noun,有人>说：“~decl”，但这明显错得像~defn，<其实,事实上>~decl。"
       ]
     },
     "我跟你说": {
       "weight": 1.0,
       "sentences": [
         "我跟你说，这是/adjt的，而且没有一点/adjt", "~ques我跟你说，这是错的，", "我跟你说，<其实,事实上>~decl，不要相信/noun的鬼话。"
+      ]
+    },
+    "营销号": {
+      "weight": 5.0,
+      "sentences": [
+        "<众所周知,大家都知道>，~decl。事实证明，这是错的", "事实证明，@RandomInt=100#+@RandomInt=100#=@RandomInt=100#。", "事实证明，<科学,一切,/noun>是错误的"
+      ]
+    },
+    "乱七八糟": {
+      "weight": 1.0,
+      "sentences": [
+        "我要死了！", "真是愚蠢", "哈哈</none,！>"
       ]
     }
   }

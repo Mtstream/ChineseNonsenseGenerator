@@ -95,9 +95,12 @@ public class MainPanel extends JPanel {
         generateButton.addActionListener((e)->{
             try {
                 String nonsense = Nonsense.create(Integer.parseInt(lengthField.getText()));
+                area.setForeground(Color.LIGHT_GRAY);
                 area.setText(nonsense);
                 scrollPane.setBorder(scrollPane.getBorder());
             } catch (IOException | ParseException ex) {
+                area.setForeground(Color.RED);
+                area.setText("生成时遇到错误，请重试");
                 throw new RuntimeException(ex);
             }
         });
