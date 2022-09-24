@@ -1,4 +1,4 @@
-package org.mtstream.cng.StringGenerator;
+package org.mtstream.cng.stringGenerator;
 
 import org.json.simple.parser.ParseException;
 import org.mtstream.cng.resourcesInteractor.ResourceReader;

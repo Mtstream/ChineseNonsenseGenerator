@@ -1,4 +1,6 @@
-package org.mtstream.cng.StringGenerator;
+package org.mtstream.cng.stringGenerator;
+
+import org.mtstream.cng.resourcesInteractor.ResourceReader;
 
 import java.io.IOException;
 import java.util.*;
@@ -31,25 +33,15 @@ public class SpecialElementHandler {
         });
         specialElementMap.put(Pattern.compile("Store=.*"), (s)->{
             String result = s.replaceFirst("Store=", "");
-            try {
-                String filledResult = SentenceFactory.fillSentence(result);
-                storageMap.put("Storage-Unnamed", filledResult);
-                return filledResult;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return result;
+            String filledResult = SentenceFactory.fillSentence(result);
+            storageMap.put("Storage-Unnamed", filledResult);
+            return filledResult;
         });
         specialElementMap.put(Pattern.compile("Store=.*=key=.*"), (s)->{
             String[] results = s.replaceFirst("Store=", "").split("=key=");
-            try {
-                String filledResult = SentenceFactory.fillSentence(results[0]);
-                storageMap.put("Storage-"+results[1], filledResult);
-                return filledResult;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return results[0];
+            String filledResult = SentenceFactory.fillSentence(results[0]);
+            storageMap.put("Storage-"+results[1], filledResult);
+            return filledResult;
         });
         specialElementMap.put(Pattern.compile("Take(?!=)"), (s)-> {
             String took = storageMap.get("Storage-Unnamed");
@@ -68,7 +60,7 @@ public class SpecialElementHandler {
             if(!entry.getKey().matcher(str).matches())continue;
             return entry.getValue().convert(str);
         }
-        return "*无法解析"+str+"*";
+        return ResourceReader.NOT_FOUND;
     }
 
     public interface SpecialElement {

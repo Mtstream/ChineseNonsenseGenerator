@@ -17,22 +17,26 @@ public class ResourceReader {
     public static final String SENTENCE_LOC = "sentence_structure/sentence_structure.json";
     public static final String WORD_LOC = "word/word.json";
 
-    public static JSONObject getJsonObj(String loc) throws IOException {
+    public static JSONObject getJsonObj(String loc) {
         InputStream is = ClassLoader.getSystemResourceAsStream(loc);
         assert is != null;
-        JSONObject obj = (JSONObject) JSONValue.parse(new InputStreamReader(is, StandardCharsets.UTF_8));
-        is.close();
-        return obj;
+        JSONObject result = (JSONObject) JSONValue.parse(new InputStreamReader(is, StandardCharsets.UTF_8));
+        try {
+            is.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
-    public static String getRandomSentence() throws IOException {
+    public static String getRandomSentence() {
         JSONObject obj = (JSONObject) getRandomElement(getJsonObj(SENTENCE_LOC).values().stream().toList());
         List<String> list = calcWeight(obj, true);
         if(list == null)return getRandomSentence();
         return (String) getRandomElement(list);
     }
 
-    public static String getRandomSentence(String type) throws IOException {
+    public static String getRandomSentence(String type) {
         JSONObject obj = (JSONObject) getJsonObj(SENTENCE_LOC).get(type);
         List<String> list = calcWeight(obj, false);
         if(list == null)return getRandomSentence(type);
@@ -62,7 +66,7 @@ public class ResourceReader {
         return null;
     }
 
-    public static String getRandomWord(String type) throws IOException {
+    public static String getRandomWord(String type) {
         JSONArray arr = (JSONArray) getJsonObj(WORD_LOC).get(type);
         if(arr == null)return NOT_FOUND;
         List<String> list = arr.stream().toList();

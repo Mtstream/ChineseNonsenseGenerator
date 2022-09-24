@@ -1,7 +1,7 @@
 package org.mtstream.cng;
 
 import org.json.simple.parser.ParseException;
-import org.mtstream.cng.StringGenerator.Nonsense;
+import org.mtstream.cng.stringGenerator.Nonsense;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;

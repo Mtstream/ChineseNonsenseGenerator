@@ -1,8 +1,8 @@
 package org.mtstream.cng;
 
 
-import org.mtstream.cng.StringGenerator.SentenceFactory;
-import org.mtstream.cng.StringGenerator.SpecialElementHandler;
+import org.mtstream.cng.stringGenerator.SentenceFactory;
+import org.mtstream.cng.stringGenerator.SpecialElementHandler;
 
 import javax.swing.*;
 import java.awt.*;
