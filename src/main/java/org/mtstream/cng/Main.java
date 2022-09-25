@@ -2,18 +2,17 @@ package org.mtstream.cng;
 
 
 import org.mtstream.cng.stringGenerator.SentenceFactory;
-import org.mtstream.cng.stringGenerator.SpecialElementHandler;
+import org.mtstream.cng.sentenceElement.SpecialElementHandler;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main{
 
     public static boolean DEBUG_MODE = false;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         bootstrap();
         if (DEBUG_MODE) {
             startTestMode();
@@ -37,7 +36,7 @@ public class Main{
         SpecialElementHandler.bootstrap();
     }
 
-    public static void startTestMode() throws IOException {
+    public static void startTestMode() {
         System.out.println("Test mode started");
         while (true) {
             Scanner sc = new Scanner(System.in);

@@ -21,8 +21,8 @@ public class Nonsense {
         return builder.toString();
     }
     public static boolean needPunc(char c){
-        Pattern canCanNeed = Pattern.compile("[\u4e00-\u9fa5“”]");
-        Matcher matcher = canCanNeed.matcher(Character.toString(c));
+        Pattern puncPattern = Pattern.compile("[^。？！]");
+        Matcher matcher = puncPattern.matcher(Character.toString(c));
         return matcher.matches();
     }
     public static char genPunc(){

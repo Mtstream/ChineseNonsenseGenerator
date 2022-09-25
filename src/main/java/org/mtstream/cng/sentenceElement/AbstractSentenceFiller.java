@@ -1,11 +1,11 @@
-package org.mtstream.cng.stringGenerator;
+package org.mtstream.cng.sentenceElement;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class AbstractSentenceFiller {
 
-    abstract protected Pattern getPattern();
+    abstract public Pattern getPattern();
 
     abstract public String getReplacement(String group);
 

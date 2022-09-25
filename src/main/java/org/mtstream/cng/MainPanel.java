@@ -15,7 +15,6 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
 
 public class MainPanel extends JPanel {
 
-    public static final Color TRANSPARENCY = new Color(0, 0, 0, 0);
     public static final Color BLUE = new Color(84, 135, 211);
     public static final Color LIGHT_BLUE = new Color(124, 175, 251);
 
@@ -31,6 +30,7 @@ public class MainPanel extends JPanel {
         RoundRectangleScrollPane scrollPane = new RoundRectangleScrollPane();
         RoundRectangleButton copyButton = new RoundRectangleButton("复制到剪贴板", LIGHT_BLUE, BLUE);
         RoundRectangleButton generateButton = new RoundRectangleButton("生成", LIGHT_BLUE, BLUE);
+        RoundRectangleCheckBox checkBox = new RoundRectangleCheckBox();
 //        RoundRectangleButton githubButton = new RoundRectangleButton("源代码", grayWithBrightness(160), grayWithBrightness(140));
 
 
@@ -43,6 +43,7 @@ public class MainPanel extends JPanel {
         add (length);
         add (copyButton);
         add (generateButton);
+        add (checkBox);
 //        add (githubButton);
 
         title.setFont(new Font("Microsoft YaHei UI", Font.BOLD, 35));
@@ -83,6 +84,8 @@ public class MainPanel extends JPanel {
         generateButton.setBackground(BLUE);
         generateButton.setBorderPainted(false);
         generateButton.setFocusPainted(false);
+        checkBox.setBounds(20, 225, 25, 25);
+        checkBox.setBorderPainted(false);
 //        githubButton.setBounds(700, 10, 200, 40);
 //        githubButton.setFont(new Font("Microsoft YaHei UI", Font.BOLD, 20));
 //        githubButton.setBackground(grayWithBrightness(140));
@@ -183,7 +186,7 @@ public class MainPanel extends JPanel {
             setBackground(new Color(0, 0, 0, 0));
             setOpaque(false);
             setSelectionColor(grayWithBrightness(120));
-            setFont(new Font("sansserif", 0, 20));
+            setFont(new Font("sansserif", Font.PLAIN, 20));
         }
 
         @Override
@@ -194,6 +197,29 @@ public class MainPanel extends JPanel {
             g2D.setColor(grayWithBrightness(80));
             g2D.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
             super.paintComponent(g);
+        }
+    }
+    public static class RoundRectangleCheckBox extends JCheckBox{
+        RoundRectangleCheckBox(){
+            super();
+            setBorder(new EmptyBorder(4,4,4,4));
+            setBackground(new Color(0, 0, 0, 0));
+            setOpaque(false);
+            setFont(new Font("sansserif", Font.PLAIN, 20));
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2D = (Graphics2D) g;
+            g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2D.setColor(grayWithBrightness(80));
+            g2D.fillRoundRect(0, 0, getWidth(), getHeight(), 10, 10);
+            if(isSelected()) {
+                g2D.setColor(Color.LIGHT_GRAY);
+                g2D.fillRoundRect(5, 5, 15, 15, 10, 10);
+            }
+//            super.paintComponent(g);
         }
     }
     public static class RoundRectangleScrollBarUI extends BasicScrollBarUI {
@@ -241,4 +267,5 @@ public class MainPanel extends JPanel {
             public void paint(Graphics grphcs) {}
         }
     }
+
 }

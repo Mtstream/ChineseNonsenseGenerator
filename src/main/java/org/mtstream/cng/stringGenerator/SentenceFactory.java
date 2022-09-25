@@ -1,9 +1,10 @@
 package org.mtstream.cng.stringGenerator;
 
-import org.mtstream.cng.stringGenerator.sentenceFiller.RandomPickFiller;
-import org.mtstream.cng.stringGenerator.sentenceFiller.SentencePatternFiller;
-import org.mtstream.cng.stringGenerator.sentenceFiller.SpecialElementFiller;
-import org.mtstream.cng.stringGenerator.sentenceFiller.WordFiller;
+import org.mtstream.cng.sentenceElement.AbstractSentenceFiller;
+import org.mtstream.cng.sentenceElement.sentenceFiller.RandomPickFiller;
+import org.mtstream.cng.sentenceElement.sentenceFiller.SentencePatternFiller;
+import org.mtstream.cng.sentenceElement.sentenceFiller.SpecialElementFiller;
+import org.mtstream.cng.sentenceElement.sentenceFiller.WordFiller;
 
 import java.util.*;
 

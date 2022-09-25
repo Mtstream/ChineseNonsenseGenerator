@@ -1,13 +1,13 @@
-package org.mtstream.cng.stringGenerator.sentenceFiller;
+package org.mtstream.cng.sentenceElement.sentenceFiller;
 
-import org.mtstream.cng.stringGenerator.AbstractSentenceFiller;
+import org.mtstream.cng.sentenceElement.AbstractSentenceFiller;
 
 import java.util.Random;
 import java.util.regex.Pattern;
 
 public class RandomPickFiller extends AbstractSentenceFiller {
     @Override
-    protected Pattern getPattern() {
+    public Pattern getPattern() {
         return Pattern.compile("<(.|[^<>]+)>");
     }
 

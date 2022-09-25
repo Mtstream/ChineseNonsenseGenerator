@@ -1,8 +1,9 @@
-package org.mtstream.cng.stringGenerator;
+package org.mtstream.cng.sentenceElement;
 
+import org.json.simple.JSONArray;
 import org.mtstream.cng.resourcesInteractor.ResourceReader;
+import org.mtstream.cng.stringGenerator.SentenceFactory;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -53,6 +54,22 @@ public class SpecialElementHandler {
             return took==null?"*提取的字符串为null*":took;
         });
         specialElementMap.put(Pattern.compile("EndPunc"), (s)-> new Random().nextBoolean()? "。" : "！");
+
+        specialElementMap.put(Pattern.compile("StipulateWordLength=.*=length=[0-9]+"), (s)->{
+            String[] results = s.replaceFirst("StipulateWordLength=", "").split("=length=");
+            String wordType = results[0].replace("/", "");
+            JSONArray arr = (JSONArray) ResourceReader.getJsonObj(ResourceReader.WORD_LOC).get(wordType);
+            if(arr == null)return ResourceReader.NOT_FOUND;
+            List<String> allWords = arr.stream().toList();
+            if(allWords.isEmpty()) return "*找不到词语*";
+            List<String> targetWords = new ArrayList<>();
+            for(String word : allWords) {
+                if(word.length() == Integer.parseInt(results[1])) {
+                    targetWords.add(word);
+                }
+            }
+            return (String) ResourceReader.getRandomElement(targetWords);
+        });
     }
 
     public static String resolve(String str){

@@ -1,13 +1,13 @@
-package org.mtstream.cng.stringGenerator.sentenceFiller;
+package org.mtstream.cng.sentenceElement.sentenceFiller;
 
-import org.mtstream.cng.stringGenerator.AbstractSentenceFiller;
+import org.mtstream.cng.sentenceElement.AbstractSentenceFiller;
 import org.mtstream.cng.resourcesInteractor.ResourceReader;
 
 import java.util.regex.Pattern;
 
 public class WordFiller extends AbstractSentenceFiller {
     @Override
-    protected Pattern getPattern() {
+    public Pattern getPattern() {
         return Pattern.compile("/(.{4})");
     }
 
@@ -15,7 +15,7 @@ public class WordFiller extends AbstractSentenceFiller {
     public String getReplacement(String group) {
         String replacement = ResourceReader.getRandomWord(group);
         if(replacement.equals(ResourceReader.NOT_FOUND)){
-            replacement = "*找不到词语"+group+"*";
+            replacement = "*找不到词语*";
         }
         return replacement;
     }
