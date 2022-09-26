@@ -13,12 +13,16 @@ public class SentenceFactory {
     public static String fillSentence(String structure)  {
         System.out.println("Start Filling: "+structure);
         String origin = structure;
-        List<AbstractSentenceFiller> fillerList = new ArrayList<>(List.of(new SpecialElementFiller(), new RandomPickFiller(), new SentencePatternFiller(), new WordFiller()));
+        List<AbstractSentenceFiller> fillerList = new ArrayList<>(List.of(new SpecialElementFiller(),
+                new RandomPickFiller(), new SentencePatternFiller(), new WordFiller()));
+
         while (!checkFilledCompletely(fillerList, origin)){
+            System.out.println("Filling: "+origin);
             for(AbstractSentenceFiller filler : fillerList) {
                 origin = filler.fill(origin);
             }
         }
+        System.out.println("Filled: "+origin);
         return origin;
     }
 

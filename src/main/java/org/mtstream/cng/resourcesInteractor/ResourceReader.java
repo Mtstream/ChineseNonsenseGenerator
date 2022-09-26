@@ -73,10 +73,10 @@ public class ResourceReader {
         return (String) getRandomElement(list);
     }
 
-
     public static Object getRandomElement(List<?> coll){
         Random r = new Random();
         return coll.get(r.nextInt(coll.size()));
     }
+
 
 }

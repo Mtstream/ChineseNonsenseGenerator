@@ -57,7 +57,7 @@ public class SpecialElementHandler {
 
         specialElementMap.put(Pattern.compile("StipulateWordLength=.*=length=[0-9]+"), (s)->{
             String[] results = s.replaceFirst("StipulateWordLength=", "").split("=length=");
-            String wordType = results[0].replace("/", "");
+            String wordType = results[0];
             JSONArray arr = (JSONArray) ResourceReader.getJsonObj(ResourceReader.WORD_LOC).get(wordType);
             if(arr == null)return ResourceReader.NOT_FOUND;
             List<String> allWords = arr.stream().toList();

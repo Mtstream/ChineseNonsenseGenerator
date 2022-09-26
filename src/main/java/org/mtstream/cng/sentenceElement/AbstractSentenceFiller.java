@@ -16,9 +16,6 @@ public abstract class AbstractSentenceFiller {
             String replacement = getReplacement(matcher.group(1));
             origin = origin.replaceFirst(matcher.group(0), replacement);
         }
-        if(getPattern().matcher(origin).matches()){
-            return fill(origin);
-        }
         return origin;
     }
 }
