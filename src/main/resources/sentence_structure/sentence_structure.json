@@ -90,7 +90,9 @@
         "从/noun/prep<钻出,冒出>来", "/advb地/vrbt了/dcrn", "/advb地发现了/dcrn", "发现了在/noun里的/noun", "卡在了/noun里", "对着/noun/vrbt", "对着/dcrn开枪扫射",
         "每天/vrbi@RandomInt=10#<次,遍>", "被/noun改装成/noun", "朝着/noun开始/vrbi", "上覆盖着/dcrn", "把/noun/vrbt得到处都是", "发出</noun,/adjt>的声音",
         "期待着/noun的/vrbi", "被固定在/noun/prep", "对/dcrn宣战", "宣布对/dcrn开战", "<骑,躺>在/noun上/vrbi", "<骑>着/noun/vrbt/noun", "变得越来越多", "患上了/adjt症",
-        "占领了/noun的/noun", "把/noun塞到/noun里", "拿出/noun和/noun厮杀", "坠入了/noun", "拿着/dcrn去/noun~actn"
+        "占领了/noun的/noun", "把/noun塞到/noun里", "拿出/noun和/noun厮杀", "坠入了/noun", "拿着/dcrn去/noun~actn",
+        "在第<一,二,三,四,五,六,七>次<@StipulateWordLength=noun=length=2#,世界>战争<获胜,失败>",
+        "在第<一,二,三,四,五,六,七>次<@StipulateWordLength=noun=length=2#,世界>战争中<逃离,光荣牺牲,因/noun的/vrbi去世>"
 
       ]
     }
@@ -119,7 +121,7 @@
       "sentences":  [
         "~decl的同时，~decl", "~decl之后，/noun/vrbi了", "~decl之后，/noun/adjt得/vrbi", "自从~decl，/noun逐渐变得/adjt，并开始用</noun,/dcrn>/vrbt/noun",
         "~decl之后，/noun/vrbi了","/dcrn/advb地/vrbt了/dcrn，并把它放到/noun/prep", "/dcrn~actn，并~actn", "拿着/noun/vrbt了/noun", "/vrbt了/dcrn",
-        "~decl，对此我想说：“<~decl,~clse>。”", "~decl，/dcrn对此感到</none,/degr>/emot", "~decl，这<给/dcrn,/none>带来了新的/noun", "@RandomInt=50#年后，/dcrn/vrbi了",
+        "~decl，对此我想说：“<~decl,~clse>。”", "~decl，/dcrn对此感到</none,/degr>/emot", "~decl，这<给/dcrn,/none>带来了新的/noun",
         "/dcrn一边~actn，一边~actn", "/dcrn一边/vrbt/noun，一边/thnk：“~ques”", "/dcrn<在/vrbt,/vrbt了>/noun，并开始/vrbi", "/advb地在/noun/prep/vrbi并/vrbt了很多/noun",
         "/dcrn打开了/noun，并把/dcrn扔了进去", "/dcrn宣布自己是/noun，这引起了人们的/emot", "根据《</noun/vrbi法,/noun公平法,公平原则>》，/dcrn必须~actn",
         "根据《</noun/vrbi法,/noun公平法,公平原则>》，/dcrn必须~actn，否则我将~actn", "根据《@Store=/noun=key=A#@Store=/vrbi=key=B#法》，@Take=A#必须@Take=B#",
@@ -139,10 +141,16 @@
         "/ctho~decl，/noun也不会/vrbt/noun", "/ctho~decl，/noun也不会/vrbi", "/ctho~decl，/noun也不会相信/noun的鬼话"
       ]
     },
-    "wheather": {
+    "whether": {
       "weight": 7.0,
       "sentences": [
         "/cwht/dcrn是否/vrbi，/noun都会~actn", "/cwht/dcrn是否/adjt，/noun都是/adjt的", "/cwht在/noun/prep还是/noun/prep，/dcrn都会~actn", "/cwht在哪里，/dcrn都会~actn"
+      ]
+    },
+    "time": {
+      "weight": 7.0,
+      "sentences": [
+        "@RandomInt=50#年后，/dcrn/vrbi了", "当时，/noun还是一/meas/noun", "当时，/dcrn还在~actn", "@RandomInt=1000=to=9999#年，~decl"
       ]
     },
     "dialogue": {
@@ -209,10 +217,10 @@
       ]
     },
     "乱七八糟": {
-      "weight": 4.0,
+      "weight": 5.0,
       "sentences": [
         "我要死了！", "真是愚蠢", "哈哈</none,！>", "@Repeat=啊=for=@RandomInt=5##！", "请你一边/vrbi，一边/vrbi", "来不及了！", "加油！", "真恶心",
-        "@StipulateWordLength=noun=length=2#@StipulateWordLength=/vrbi=length=2#之时，便是@StipulateWordLength=/noun=length=2#@StipulateWordLength=/vrbi=length=2#之时",
+        "@StipulateWordLength=noun=length=2#@StipulateWordLength=vrbi=length=2#之时，便是@StipulateWordLength=noun=length=2#@StipulateWordLength=vrbi=length=2#之时",
         "我觉得你说的全都是废话", "以上观点我全都不认可", "我在说什么？"
       ]
     }
