@@ -31,22 +31,28 @@ public class ResourceReader {
 
     public static String getRandomSentence() {
         JSONObject obj = (JSONObject) getRandomElement(getJsonObj(SENTENCE_LOC).values().stream().toList());
+        if(obj == null) return getRandomSentence();
         List<String> list = calcWeight(obj, true);
-        if(list == null)return getRandomSentence();
+        if(list == null) return getRandomSentence();
         return (String) getRandomElement(list);
     }
 
     public static String getRandomSentence(String type) {
         JSONObject obj = (JSONObject) getJsonObj(SENTENCE_LOC).get(type);
+        if(obj == null) return NOT_FOUND;
         List<String> list = calcWeight(obj, false);
-        if(list == null)return getRandomSentence(type);
         return (String) getRandomElement(list);
     }
 
     public static List calcWeight(JSONObject obj, boolean ignoreLocked){
         double weightSum = 0;
         for(Object innerObj : obj.values()){
-            weightSum += (double)((JSONObject) innerObj).get("weight");
+            Object weightObject = ((JSONObject) innerObj).get("weight");
+            if (weightObject == null) {
+                weightSum += 1;
+            }else {
+                weightSum += (double) weightObject;
+            }
         }
         double weight = weightSum * new Random().nextDouble();
         double temp = 0;
@@ -56,7 +62,13 @@ public class ResourceReader {
                     continue;
                 }
             }
-            double objWeight = (double)((JSONObject) innerObj).get("weight");
+            double objWeight;
+            Object weightObject = ((JSONObject) innerObj).get("weight");
+            if (weightObject == null) {
+                objWeight = 1;
+            } else {
+                objWeight = (double) ((JSONObject) innerObj).get("weight");
+            }
             if(weight >= temp && weight < temp + objWeight){
                 return ((JSONArray)((JSONObject) innerObj).get("sentences")).stream().toList();
             }

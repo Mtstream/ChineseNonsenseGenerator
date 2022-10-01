@@ -1,23 +1,38 @@
 {
+  "main": {
+    "clse": {
+      "weight": 7.0,
+      "sentences": [
+        "~clse"
+      ]
+    }
+  },
   "decl": {
-    "noun_and_action": {
+    "action": {
       "weight": 8.0,
       "sentences": [
-        "/dcrn~actn", "/noun~actn", "/dcrn<派遣,委任>/noun~actn"
+        "/dcrn~actn", "/noun~actn", "/dcrn<派遣,委派>/noun~actn", "/dcrn<胜任,担任>~actn的工作"
       ]
     },
-    "describe": {
+    "description": {
       "weight": 8.0,
       "sentences": [
         "/noun是/adjt的", "</noun,这,那>是<真,假>的", "只有/noun是/adjt的", "/dcrn/degr/adjt", "/noun是/adjt的", "/noun的<大小,长度,宽度>是<@RandomInt=1000#,虚数,零>",
         "@Store=/noun#的<东,南,西,北><方,边>是<一,@RandomInt=100#00多>/meas@Take#", "/dcrn/prep全是/noun", "/dcrn的<周围,附近><钻出来,出现,冒出>了<许多,很多>/dcrn",
-        "有很多/dcrn从/noun里掉出来", "/dcrn在/vrbi时都会发出/noun</vrbi,/none>的声音", "/dcrn/prep到处都是/dcrn", "/dcrn对/noun十分痴迷", "/dcrn从来不/vrbi", "/dcrn从来不/vrbt/noun"
+        "有很多/dcrn从/noun里掉出来", "/dcrn在/vrbi时都会发出/noun</vrbi,/none>的声音", "/dcrn/prep到处都是/dcrn", "/dcrn对/noun十分痴迷", "/dcrn从来不/vrbi", "/dcrn从来不/vrbt/noun",
+        "到处都是/dcrn", "/dcrn会/vrbi", "/dcrn里有/adjt的/noun", "/noun的成分包括/noun和/noun", "/dcrn充满了/noun", "/noun是一个充满/noun的/noun"
       ]
     },
     "metaphor": {
       "weight": 6.0,
       "sentences": [
         "/noun/mtph/noun一样/degr/adjt", "/noun/mtph/noun一样/adjt", "/noun/mtph/noun一样地/bfvb/vrbi", "/noun/mtph/noun一样地/vrbt/noun", "/noun/mtph一/meas/noun"
+      ]
+    },
+    "compare": {
+      "weight": 6.0,
+      "sentences": [
+        "/noun比/noun更/adjt", "/noun更倾向于/noun", "/noun更倾向于/noun而不是/noun"
       ]
     },
     "quote": {
@@ -45,7 +60,7 @@
     "who": {
       "weight": 5.0,
       "sentences": [
-        "<你,我,/noun>是谁？", "那/meas/dcrn是谁？", "你谁啊"
+        "<你,我,/noun>是谁？", "那/meas/noun是谁？", "你谁啊"
       ]
     },
     "where": {
@@ -68,15 +83,6 @@
       ]
     }
   },
-  "defn": {
-    "defnoun": {
-      "locked": true,
-      "weight": 1.0,
-      "sentences": [
-        "/adjt的/noun", "/vrbi的/noun", "正在被/vrbt的/noun"
-      ]
-    }
-  },
   "actn": {
     "action": {
       "locked": true,
@@ -85,15 +91,14 @@
         "在/vrbi", "在/advb地/vrbi", "/vrbt了/noun", "/bfvb/vrbi", "/advb地/vrbi", "/advb地/vrbt/noun", "/advb地把/noun/vrbt成/noun", "来到/dcrn上",
         "在一</none,百,千,万,亿><米,公里><内,外>/vrbi", "在一</none,百,千,万,亿><米,公里><内,外>/vrbt/noun", "把/dcrn扔到/noun/prep", "把/dcrn扔掉", "/mtph<一/meas,/none>/noun一样/vrbi",
         "称<自己,/noun,/none>为“/noun”", "<将,把>/noun放<进,入>/noun/prep", "/bfvb向/noun/vrbt", "把/noun/vrbt到/noun/prep", "得到了/dcrn", "变成了/noun", "/mtph/noun一样走进/noun",
-        "用/noun<将,把>/dcrn/vrbt了", "与<去世,逝去>的/noun/vrbi", "在/noun/prep</vrbi,/vrbt/noun>", "在</vrbi,/vrbt/noun>时/vrbt了/noun", "成为/dcrn", "/mtph<一/meas,/none>/noun一样",
-        "<操控,命令,要求>/dcrn</vrbi,/vrbt/noun>", "从/dcrn/prep<爬,滚,走,跑>出来", "/emot地在/noun/prep/vrbi并/vrbt了很多/noun", "/emot地/vrbi", "担任/noun国的<主席,首相,总统,皇帝>",
-        "从/noun/prep<钻出,冒出>来", "/advb地/vrbt了/dcrn", "/advb地发现了/dcrn", "发现了在/noun里的/noun", "卡在了/noun里", "对着/noun/vrbt", "对着/dcrn开枪扫射",
-        "每天/vrbi@RandomInt=10#<次,遍>", "被/noun改装成/noun", "朝着/noun开始/vrbi", "上覆盖着/dcrn", "把/noun/vrbt得到处都是", "发出</noun,/adjt>的声音",
+        "用/noun<将,把>/dcrn/vrbt了", "与<去世,逝去>的/noun/vrbi", "在/noun/prep</vrbi,/vrbt/noun>", "在</vrbi,/vrbt/noun>时/vrbt了/noun", "成为/dcrn",
+        "/mtph<一/meas,/none>/noun一样", "<操控,命令,要求>/dcrn</vrbi,/vrbt/noun>", "从/dcrn/prep<爬,滚,走,跑>出来", "/emot地在/noun/prep/vrbi并/vrbt了很多/noun", "/emot地/vrbi",
+        "担任/noun国的<主席,首相,总统,皇帝>", "从/noun/prep<钻出,冒出>来", "/advb地/vrbt了/dcrn", "/advb地发现了/dcrn", "发现了在/noun里的/noun", "卡在了/noun里", "对着/noun/vrbt",
+        "对着/dcrn开枪扫射", "每天/vrbi@RandomInt=10#<次,遍>", "被/noun改装成/noun", "朝着/noun开始/vrbi", "上覆盖着/dcrn", "把/noun/vrbt得到处都是", "发出</noun,/adjt>的声音",
         "期待着/noun的/vrbi", "被固定在/noun/prep", "对/dcrn宣战", "宣布对/dcrn开战", "<骑,躺>在/noun上/vrbi", "<骑>着/noun/vrbt/noun", "变得越来越多", "患上了/adjt症",
-        "占领了/noun的/noun", "把/noun塞到/noun里", "拿出/noun和/noun厮杀", "坠入了/noun", "拿着/dcrn去/noun~actn",
-        "在第<一,二,三,四,五,六,七>次<@StipulateWordLength=noun=length=2#,世界>战争<获胜,失败>",
-        "在第<一,二,三,四,五,六,七>次<@StipulateWordLength=noun=length=2#,世界>战争中<逃离,光荣牺牲,因/noun的/vrbi去世>"
-
+        "占领了/noun的/noun", "把/noun塞到/noun里", "拿出/noun和/noun厮杀", "坠入了/noun", "拿着/dcrn去/noun~actn", "把/dcrn从/noun/prep拿走",
+        "在第<一,二,三,四,五,六,七>次<@StipulateWordLength=noun=length=2#,世界>战争<获胜,失败>", "邀请/noun一起/vrbi", "趁/noun/vrbi时偷偷/vrbi", "趁/noun/vrbi时偷偷/vrbt/noun",
+        "在第<一,二,三,四,五,六,七>次<@StipulateWordLength=noun=length=2#,世界>战争中<逃离,光荣牺牲,因/noun的/vrbi去世>", "购买了/dcrn"
       ]
     }
   },
@@ -107,7 +112,7 @@
     "turn": {
       "weight": 7.0,
       "sentences": [
-        "~decl，但是~decl", "~decl，但是/dcrn<无法,不能>/vrbi", "/dcrn原本打算~actn，不料被/dcrn/vrbi", "/dcrn原本打算~actn，不料遭到了/dcrn的/vrbi"
+        "~decl，但是~decl", "~decl，但是/dcrn<无法,不能>/vrbi", "/dcrn原本打算~actn，不料被/dcrn/vrbt", "/dcrn原本打算~actn，不料遭到了/dcrn的/vrbi"
       ]
     },
     "conditional": {
@@ -117,53 +122,60 @@
       ]
     },
     "event": {
-      "weight": 7.0,
+      "weight": 12.0,
       "sentences":  [
-        "~decl的同时，~decl", "~decl之后，/noun/vrbi了", "~decl之后，/noun/adjt得/vrbi", "自从~decl，/noun逐渐变得/adjt，并开始用</noun,/dcrn>/vrbt/noun",
+        "~decl的同时，~decl", "~decl之后，/noun/vrbi了", "自从~decl，/noun逐渐变得/adjt，并开始用</noun,/dcrn>/vrbt/noun",
         "~decl之后，/noun/vrbi了","/dcrn/advb地/vrbt了/dcrn，并把它放到/noun/prep", "/dcrn~actn，并~actn", "拿着/noun/vrbt了/noun", "/vrbt了/dcrn",
-        "~decl，对此我想说：“<~decl,~clse>。”", "~decl，/dcrn对此感到</none,/degr>/emot", "~decl，这<给/dcrn,/none>带来了新的/noun",
+        "~decl，对此我想说：“<~decl,~clse>。”", "~decl，/dcrn对此感到</none,/degr>/emot", "~decl，这<给/dcrn,/none>带来了新的/noun", "/noun还在@Clear=在=in=~actn#时，/noun已经开始~actn了",
         "/dcrn一边~actn，一边~actn", "/dcrn一边/vrbt/noun，一边/thnk：“~ques”", "/dcrn<在/vrbt,/vrbt了>/noun，并开始/vrbi", "/advb地在/noun/prep/vrbi并/vrbt了很多/noun",
-        "/dcrn打开了/noun，并把/dcrn扔了进去", "/dcrn宣布自己是/noun，这引起了人们的/emot", "根据《</noun/vrbi法,/noun公平法,公平原则>》，/dcrn必须~actn",
+        "/dcrn打开了/noun，并把/dcrn扔了进去", "/dcrn宣布自己是/noun，这引起了人们的/emot", "根据《</noun/vrbi法,/noun公平法,公平原则>》，/dcrn必须~actn", "在/noun制造混乱",
         "根据《</noun/vrbi法,/noun公平法,公平原则>》，/dcrn必须~actn，否则我将~actn", "根据《@Store=/noun=key=A#@Store=/vrbi=key=B#法》，@Take=A#必须@Take=B#",
         "根据《@Store=/noun=key=A#@Store=/vrbi=key=B#法》，@Take=A#必须</advb地,在/noun/prep>@Take=B#", "@RandomInt=1=to=12#月@RandomInt=1=to=31#日，/dcrn~actn",
-        "~decl，与此同时，/dcrn~actn", "根据/noun性质的不同，/noun也会发生改变"
+        "~decl，与此同时，/dcrn~actn", "/dcrn将/noun/vrbi，~actn", "~actn后，~decl", "/dcrn在一旁<偷看,偷听>，发现/dcrn~actn", "/dcrn在/vrbi时发生了错误，变成了一/meas/noun",
+        "/noun正在<出售,售卖,销售>/dcrn，售价为每/meas<@RandomInt#,@RandomInt=100#><块,元>", "/noun正在<出售,售卖,销售>/dcrn", "/dcrn~actn，开始/vrbi"
+      ]
+    },
+    "description": {
+      "weight": 12.0,
+      "sentences":  [
+        "/noun是一个/noun，每天都会~actn", "这是一/meas/noun，名字叫<刘,陈,张,李,赵>@StipulateWordLength=noun=length=2#", "。/noun，是/meas/noun，但<他,她,它>/vrbi了",
+        "。/noun，是/meas/noun，而且是/meas/noun", "。/noun不仅是一/meas/noun，而且是/noun，更是/noun。", "这是/noun，是/noun和/noun的混合体",
+        "那个@Store=/adjt=key=A#的@Store=/adjt=key=B#/noun@Take=B#且@Take=A#", "这是/noun，<他,她,它>的工作是~actn"
       ]
     },
     "chain": {
       "weight": 2.0,
       "sentences":  [
-        "<~defn,~nisv>，<~defn,~nisv>，<~defn,~nisv>，/crea~decl", "~defn，~defn，~defn，这就是/noun/vrbi的理由？"
+        "</dcrn,~nisv>，</dcrn,~nisv>，</dcrn,~nisv>，/crea~decl", "/dcrn，/dcrn，/dcrn，这就是/noun/vrbi的理由？"
       ]
     },
     "though": {
-      "weight": 7.0,
+      "weight": 4.0,
       "sentences": [
         "/ctho~decl，/noun也不会/vrbt/noun", "/ctho~decl，/noun也不会/vrbi", "/ctho~decl，/noun也不会相信/noun的鬼话"
       ]
     },
     "whether": {
-      "weight": 7.0,
+      "weight": 4.0,
       "sentences": [
         "/cwht/dcrn是否/vrbi，/noun都会~actn", "/cwht/dcrn是否/adjt，/noun都是/adjt的", "/cwht在/noun/prep还是/noun/prep，/dcrn都会~actn", "/cwht在哪里，/dcrn都会~actn"
       ]
     },
     "time": {
-      "weight": 7.0,
+      "weight": 4.0,
       "sentences": [
-        "@RandomInt=50#年后，/dcrn/vrbi了", "当时，/noun还是一/meas/noun", "当时，/dcrn还在~actn", "@RandomInt=1000=to=9999#年，~decl"
-      ]
-    },
-    "dialogue": {
-      "weight": 2.0,
-      "sentences": [
-        "/noun问：“~ques”，/noun回答：“~decl”。", "/noun问：“~ques”，/noun回答：“~decl”，但/noun说：“<错了,这是错误的,搓啦>，~decl”"
+        "@RandomInt=50#年后，/dcrn/vrbi了", "当时，@DrawWord=noun#还是一/meas/noun", "当时，/dcrn还在~actn", "@RandomInt=1000=to=9999#年，~decl",
+        "<我,/noun>还是@RandomInt=100#岁时，~decl", "与此同时，@DrawWord=noun#~actn"
       ]
     },
     "misc": {
       "weight": 7.0,
       "sentences": [
         "/noun打开了/dcrn，发现里面有/dcrn", "/dcrn患上了<轻微的,严重的,剧烈的,罕见的,/noun></symp,/adjt,/noun><病,症>，症状包括：/symp，/symp，/symp和/symp。",
-        "/dcrn患上了<轻微的,严重的,剧烈的,罕见的,/noun></symp,/adjt,/noun><病,症>，症状包括：</symp，/symp，和/symp,/symp和/symp><，这导致了~decl,/none>。"
+        "/dcrn患上了<轻微的,严重的,剧烈的,罕见的,/noun></symp,/adjt,/noun><病,症>，症状包括：</symp，/symp，和/symp,/symp和/symp><，这导致了~decl,/none>。", "幸运的是，~decl",
+        "所有/noun都在/vrbi，不做的都被处决了", "</noun,我>宣布/dcrn必须~actn，否则将会被</vrbt,处决>", "<我,/noun>宣布禁止/vrbi", "<我,/noun>宣布禁止/vrbt/noun",
+        "根据/noun<报告,研究,访问>，~decl", "/noun是一个@Store=/noun#，而不是一个@Take#", "@Store=/noun#需要/noun，但是/noun没有/noun了，@Take#不得不~actn",
+        "<事实上,/none>/noun已经<失去价值,没用>了，请<用/noun将它送到<堆填区,垃圾桶,/noun>,将它销毁>"
       ]
     }
   },
@@ -192,7 +204,7 @@
       ]
     },
     "我跟你说个典故": {
-      "weight": 7.0,
+      "weight": 5.0,
       "sentences": [
         "我跟你说个<故事,典故,事情,笑话>，/dcrn~actn，/dcrn~actn，最后/dcrn~actn。", "我跟你说个<故事,典故,事情,笑话>，/dcrn~actn，~clse。"
       ]
@@ -200,7 +212,7 @@
     "有人说": {
       "weight": 5.0,
       "sentences": [
-        "</noun,有人>说：“~decl”，但这明显错得像~defn。", "</noun,有人>说：“~decl”，但这明显错得像~defn，<其实,事实上>~decl。"
+        "</noun,有人>说：“~decl”，但这明显错得像/dcrn。", "</noun,有人>说：“~decl”，但这明显错得像/dcrn，<其实,事实上>~decl。"
       ]
     },
     "我跟你说": {
@@ -209,19 +221,13 @@
         "我跟你说，这是/adjt的，而且没有一点/adjt。", "~ques我跟你说，这是错的。", "我跟你说，<其实,事实上>~decl，不要相信/noun的鬼话。"
       ]
     },
-    "营销号": {
-      "weight": 5.0,
-      "sentences": [
-        "<众所周知,大家都知道>，~decl。事实证明，这是错的", "事实证明，@RandomInt=100#+@RandomInt=100#=@RandomInt=100#。", "事实证明，<科学,一切,/noun>是错误的",
-        "据</none,不>可靠消息报道，~decl"
-      ]
-    },
     "乱七八糟": {
       "weight": 5.0,
       "sentences": [
-        "我要死了！", "真是愚蠢", "哈哈</none,！>", "@Repeat=啊=for=@RandomInt=5##！", "请你一边/vrbi，一边/vrbi", "来不及了！", "加油！", "真恶心",
+        "我要死了！", "真是愚蠢", "哈哈</none,！>", "@Repeat=啊=for=@RandomInt=5##！", "请你一边/vrbi，一边/vrbi", "来不及了！", "加油！", "真恶心", "请在/vrbi时/vrbi",
         "@StipulateWordLength=noun=length=2#@StipulateWordLength=vrbi=length=2#之时，便是@StipulateWordLength=noun=length=2#@StipulateWordLength=vrbi=length=2#之时",
-        "我觉得你说的全都是废话", "以上观点我全都不认可", "我在说什么？"
+        "我觉得你说的全都是废话", "以上观点我全都不认可", "我在说什么？", "<众所周知,大家都知道>，~decl。事实证明，这是错的", "所以，让我们谈谈/dcrn", "所以，让我们想想/noun的/vrbi",
+        "事实证明，@RandomInt=100#+@RandomInt=100#=@RandomInt=100#。", "事实证明，<科学,一切,/noun>是错误的", "据</none,不>可靠消息报道，~decl"
       ]
     }
   }

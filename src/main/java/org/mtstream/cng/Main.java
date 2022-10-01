@@ -34,6 +34,7 @@ public class Main{
 
     public static void bootstrap(){
         SpecialElementHandler.bootstrap();
+        SentenceFactory.bootstrap();
     }
 
     public static void startTestMode() {
@@ -41,7 +42,17 @@ public class Main{
         while (true) {
             Scanner sc = new Scanner(System.in);
             String str = sc.next();
-            System.out.println(SentenceFactory.fillSentence(str));
+            System.out.println(SentenceFactory.getMainFactory().fillSentence(str));
         }
+    }
+
+    public static String outputError(String err) {
+        System.err.println("Error: "+err);
+        return "*"+err+"*";
+    }
+
+    public static String outputWarning(String war) {
+        System.out.println("\u001B[33mWarning: "+war+"\u001B[0m");
+        return "*"+war+"*";
     }
 }

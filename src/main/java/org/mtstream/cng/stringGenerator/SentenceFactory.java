@@ -10,28 +10,60 @@ import java.util.*;
 
 public class SentenceFactory {
 
-    public static String fillSentence(String structure)  {
-        System.out.println("Start Filling: "+structure);
-        String origin = structure;
-        List<AbstractSentenceFiller> fillerList = new ArrayList<>(List.of(new SpecialElementFiller(),
-                new RandomPickFiller(), new SentencePatternFiller(), new WordFiller()));
+    private static SentenceFactory MAIN_FACTORY;
 
-        while (!checkFilledCompletely(fillerList, origin)){
-            System.out.println("Filling: "+origin);
+    private List<AbstractSentenceFiller> fillerList;
+
+    private int level;
+
+    public SentenceFactory() {
+        this.fillerList = new ArrayList<>();
+        this.level = 0;
+    }
+
+    public void insertFiller(AbstractSentenceFiller filler) {
+        fillerList.add(filler);
+    }
+
+    public String fillSentence(String structure)  {
+        level++;
+        System.out.println(indent(this.level-1)+"Start Filling: "+structure);
+        String origin = structure;
+
+        while (!checkFilledCompletely(origin)){
+            System.out.println(indent(this.level-1)+"Filling: "+origin);
             for(AbstractSentenceFiller filler : fillerList) {
                 origin = filler.fill(origin);
             }
         }
-        System.out.println("Filled: "+origin);
+        System.out.println(indent(this.level-1)+"Filled: "+origin);
+        level--;
         return origin;
     }
 
-    public static boolean checkFilledCompletely(List<AbstractSentenceFiller> fillerList, String str) {
+    public boolean checkFilledCompletely(String str) {
         for(AbstractSentenceFiller filler : fillerList){
             if(filler.getPattern().matcher(str).find()) {
                 return false;
             }
         }
         return true;
+    }
+
+    public static String indent(int times) {
+        return String.valueOf(new char[times*2]).replace("\0", " ");
+    }
+
+    public static void bootstrap() {
+        SentenceFactory factory = new SentenceFactory();
+        factory.insertFiller(new RandomPickFiller());
+        factory.insertFiller(new WordFiller());
+        factory.insertFiller(new SentencePatternFiller());
+        factory.insertFiller(new SpecialElementFiller());
+        MAIN_FACTORY = factory;
+    }
+
+    public static SentenceFactory getMainFactory() {
+        return MAIN_FACTORY;
     }
 }

@@ -1,5 +1,6 @@
 package org.mtstream.cng.sentenceElement.sentenceFiller;
 
+import org.mtstream.cng.Main;
 import org.mtstream.cng.sentenceElement.AbstractSentenceFiller;
 import org.mtstream.cng.resourcesInteractor.ResourceReader;
 
@@ -15,7 +16,7 @@ public class WordFiller extends AbstractSentenceFiller {
     public String getReplacement(String group) {
         String replacement = ResourceReader.getRandomWord(group);
         if(replacement.equals(ResourceReader.NOT_FOUND)){
-            replacement = "*找不到词语*";
+            replacement = Main.outputError("*找不到词语"+group+"*");
         }
         return replacement;
     }
